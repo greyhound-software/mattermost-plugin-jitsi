@@ -17,6 +17,13 @@
                 "type": "text",
                 "help_text": "The URL for an on-premise Jitsi server. For example, https://jitsi.example.com.",
                 "placeholder": "https://jitsi.example.com"
+            },
+            {
+                "key": "JitsiProtocolPrefix",
+                "display_name": "Jitsi Server Protocol Prefix",
+                "type": "text",
+                "help_text": "The clickable URL-Prefix (a specific protocol handler) for an on-premise Jitsi server. For example, 'jitsi:'.",
+                "placeholder": "jitsi:"
             }
         ]
     }

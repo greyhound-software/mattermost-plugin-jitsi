@@ -19,12 +19,14 @@ export function startMeeting(channelId, personal = false, topic = '', meetingId 
                 root_id: '',
                 parent_id: '',
                 original_id: '',
-                message: 'We could not start a meeting at this time.',
+                message: 'We could not start a meeting at this time',
                 type: 'system_ephemeral',
                 props: {},
                 hashtags: '',
                 pending_post_id: ''
             };
+
+            post.message += ': ' + error.toString();
 
             dispatch({
                 type: PostTypes.RECEIVED_POSTS,

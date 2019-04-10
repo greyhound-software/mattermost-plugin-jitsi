@@ -19,7 +19,8 @@ const (
 type Plugin struct {
 	plugin.MattermostPlugin
 
-	JitsiURL string
+	JitsiURL            string
+	JitsiProtocolPrefix string
 }
 
 // func (p *Plugin) OnActivate() error {
@@ -106,12 +107,13 @@ func (p *Plugin) handleStartMeeting(w http.ResponseWriter, r *http.Request) {
 		meetingID = generateRoomWithoutSeparator()
 	}
 	jitsiURL := strings.TrimSpace(p.JitsiURL)
-	meetingURL := jitsiURL + "/" + meetingID
+	jitsiProtocolPrefix := strings.TrimSpace(p.JitsiProtocolPrefix)
+	meetingURL := jitsiProtocolPrefix + jitsiURL + "/" + meetingID
 
 	post := &model.Post{
 		UserId:    user.Id,
 		ChannelId: req.ChannelId,
-		Message:   fmt.Sprintf("Meeting started at %s.", meetingURL),
+		Message:   fmt.Sprintf("[Es wurde ein neues Meeting erstellt, jetzt beitreten.](%s)", meetingURL),
 		Type:      "custom_jitsi",
 		Props: map[string]interface{}{
 			"meeting_id":        meetingID,
