@@ -108,12 +108,13 @@ func (p *Plugin) handleStartMeeting(w http.ResponseWriter, r *http.Request) {
 	}
 	jitsiURL := strings.TrimSpace(p.JitsiURL)
 	jitsiProtocolPrefix := strings.TrimSpace(p.JitsiProtocolPrefix)
-	meetingURL := jitsiProtocolPrefix + jitsiURL + "/" + meetingID
+	meetingURL := jitsiURL + "/" + meetingID
+	clickableMeetingURL := jitsiProtocolPrefix + meetingURL
 
 	post := &model.Post{
 		UserId:    user.Id,
 		ChannelId: req.ChannelId,
-		Message:   fmt.Sprintf("[Es wurde ein neues Meeting erstellt, jetzt beitreten.](%s)", meetingURL),
+		Message:   fmt.Sprintf("[Es wurde ein neues Meeting erstellt, jetzt beitreten.](%s)", clickableMeetingURL),
 		Type:      "custom_jitsi",
 		Props: map[string]interface{}{
 			"meeting_id":        meetingID,

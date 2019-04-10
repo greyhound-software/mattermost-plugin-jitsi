@@ -1,8 +1,8 @@
 {
     "id": "jitsi",
-    "name": "Jitsi",
-    "description": "Jitsi audio and video conferencing plugin for Mattermost. Follow https://github.com/seansackowitz/mattermost-plugin-jitsi for notifications on updates.",
-    "version": "1.0.0",
+    "name": "Jitsi GREYHOUND",
+    "description": "Jitsi audio and video conferencing plugin for Mattermost. Follow https://github.com/greyhound-software/mattermost-plugin-jitsi for notifications on updates.",
+    "version": "1.0.1",
     "backend": {
         "executable": "server/plugin.exe"
     },
@@ -20,9 +20,9 @@
             },
             {
                 "key": "JitsiProtocolPrefix",
-                "display_name": "Jitsi Server Protocol Prefix",
+                "display_name": "Jitsi Protocol Prefix",
                 "type": "text",
-                "help_text": "The clickable URL-Prefix (a specific protocol handler) for an on-premise Jitsi server. For example, 'jitsi:'.",
+                "help_text": "The prefix for jitsi protocol links. For example: 'jitsi:'.",
                 "placeholder": "jitsi:"
             }
         ]

@@ -57,20 +57,20 @@ dist: webapp/.npminstall vendor plugin.json
 
 	# Copy server executables & compress plugin
 	mkdir -p dist/jitsi/server
-#	mv dist/intermediate/plugin_darwin_amd64 dist/jitsi/server/plugin.exe
-#	cd dist && tar -zcvf mattermost-jitsi-plugin-darwin-amd64.tar.gz jitsi/*
+	mv dist/intermediate/plugin_darwin_amd64 dist/jitsi/server/plugin.exe
+	cd dist && tar -zcvf mattermost-jitsi-plugin-darwin-amd64.tar.gz jitsi/*
 	mv dist/intermediate/plugin_linux_amd64 dist/jitsi/server/plugin.exe
 	cd dist && tar -zcvf mattermost-jitsi-plugin-linux-amd64.tar.gz jitsi/*
-#	mv dist/intermediate/plugin_windows_amd64.exe dist/jitsi/server/plugin.exe
-#	cd dist && tar -zcvf mattermost-jitsi-plugin-windows-amd64.tar.gz jitsi/*
+	mv dist/intermediate/plugin_windows_amd64.exe dist/jitsi/server/plugin.exe
+	cd dist && tar -zcvf mattermost-jitsi-plugin-windows-amd64.tar.gz jitsi/*
 
 	# Clean up temp files
 	rm -rf dist/jitsi
 	rm -rf dist/intermediate
 
-#	@echo MacOS X plugin built at: dist/mattermost-jitsi-plugin-darwin-amd64.tar.gz
+	@echo MacOS X plugin built at: dist/mattermost-jitsi-plugin-darwin-amd64.tar.gz
 	@echo Linux plugin built at: dist/mattermost-jitsi-plugin-linux-amd64.tar.gz
-#	@echo Windows plugin built at: dist/mattermost-jitsi-plugin-windows-amd64.tar.gz
+	@echo Windows plugin built at: dist/mattermost-jitsi-plugin-windows-amd64.tar.gz
 
 run: .npminstall
 	@echo Not yet implemented
